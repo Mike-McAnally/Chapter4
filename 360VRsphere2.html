@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,shrink-to-fit=no,user-scalable=no,maximum-scale=1,minimum-scale=1">
+    <title>360° VR Camera Image</title>
+    <meta name="description" content="This is a 360° VR camera equirectangular image painted on the inside of a sphere."></meta>
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="gray-translucent" />
+
+    <!-- A-frame minimized JavaScript version component entity system -->
+    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+
+  </head>
+  <body>
+    <a-scene background="color: #FAFAFA" >
+
+      <a-assets>
+
+        <img crossorigin="anonymous" id="orb1" src="assets/images360/rockyBeach.jpg">
+
+      </a-assets>
+
+      <!-- Set sky to Orb1 -->
+      <a-sky id="orbSky" material="src: #orb1" rotation="0 -90 0" ></a-sky>
+
+    </a-scene>
+  </body>
+</html>

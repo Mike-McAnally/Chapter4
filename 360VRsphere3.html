@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,shrink-to-fit=no,user-scalable=no,maximum-scale=1,minimum-scale=1">
+    <title>360° VR Camera Image</title>
+    <meta name="description" content="This is a 360° VR camera equirectangular image painted on the inside of a sphere."></meta>
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="gray-translucent" />
+
+    <!-- A-frame minimized JavaScript version component entity system -->
+    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+
+    <script type="text/javascript">
+
+      // Click listener for do on click
+      AFRAME.registerComponent('click-listener', {
+        init: function () {
+
+            this.el.addEventListener('click', function (evt) {
+
+                // remove clicked object from view
+                //this.setAttribute('visible', false);
+      
+            });
+        }
+      });
+
+
+      // Handles activating and toggle on-off audio control for browser
+      AFRAME.registerComponent('audiohandler', {
+        init:function() {
+            let playing = false;
+            let audio = document.querySelector("#playAudio");
+            this.el.addEventListener('click', () => {
+
+                if(!playing) {
+                    audio.play();
+                } else {
+                    audio.pause();
+                    audio.currentTime = 0;
+                }
+                playing = !playing;
+            });
+        }
+      });
+
+    </script>
+
+  </head>
+  <body>
+    <audio id="playAudio" autoplay loop>
+        <source src="assets/mp3/oceanSound.mp3" type="audio/mpeg">
+    </audio>
+    <a-scene background="color: #FAFAFA" raycaster="objects: .clickable">
+
+      <a-assets>
+
+        <img crossorigin="anonymous" id="orb1" src="assets/images360/rockyBeach.jpg">
+
+        <img crossorigin="anonymous" id="sand" src="assets/img/sand.jpg">
+
+        <img crossorigin="anonymous" id="play" src="assets/img/playButton.png">
+
+      </a-assets>
+
+      <!-- Set sky to Orb1 -->
+      <a-sky id="orbSky" material="src: #orb1" rotation="0 -90 0" ></a-sky>
+
+      <a-entity id="mouseCursor" cursor="rayOrigin: mouse"></a-entity>
+
+      <!-- Basic movement in VR with lowpoly hands and raycaster laser pointer for selection -->
+      <a-entity id="cameraRig" movement-controls >
+        <!-- camera  -also added an animation to fly in for dramatic visual effect at start only -->
+        <a-entity id="head" camera="active: true" position="0 1.6 0"  look-controls="pointerLockEnabled: false"></a-entity>
+              <!-- Left Controller Hand -->
+              <a-entity id="leftHand" hand-controls="hand: left; handModelStyle: lowPoly; color: #15ACCF" visible="true"></a-entity>
+              <!-- Right Controller Hand -->
+              <a-entity id="rightHand" hand-controls="hand: right; handModelStyle: lowPoly; color: #15ACCF" laser-controls raycaster="showLine: true; far: 10; interval: 0; objects: .clickable" line="color: #7cfc00; opacity: 0.5" visible="true"></a-entity>
+      </a-entity>
+
+      <a-entity id="circle" geometry="primitive: circle; radius: 0.75" position="0 -50 0" rotation="-90 0 0" material="src: #sand" shadow="receive: false" scale="33 33 33" opacity=".5"></a-entity>
+
+      <a-image class="clickable" id="playOcean" width="0.4" height="0.4" src="#play" position="-0.015 .5 -4.49178" rotation="0 0 0" audiohandler></a-image>
+
+    </a-scene>
+  </body>
+</html>
