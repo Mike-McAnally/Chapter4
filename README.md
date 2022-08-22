@@ -20,3 +20,6 @@ YouTube 360 example of me playing pinball . . .
 <br><br>
 https://www.youtube.com/watch?v=rs56uxdhnQI
 <br><br>
+Extra Mind Palace 360 menu page examples:
+<br><br>
+https://rocketvirtual.com/MP/index.html
