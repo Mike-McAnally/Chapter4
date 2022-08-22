@@ -12,7 +12,7 @@ Inside The Sphere
 <br><br>
 <a href="https://rocketvirtual.com/360VRteleport.html">Example 4</a>
 <br><br>
-<a href="https://rocketvirtual.com/360VRteleport2.html">Example 5 - includes flying drone 360 video (press play button, sound not edited out)</a>
+<a href="https://funbit64.com/360VRteleport2.html">Example 5 - includes flying drone 360 video (press play button, sound not edited out)</a>
 <br><br>
 <a href="https://rocketvirtual.com/360VRteleport3.html">Example 6</a>
 <br><br>
